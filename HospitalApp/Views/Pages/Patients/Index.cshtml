@@ -1,0 +1,61 @@
+﻿@page
+@model HospitalApp.Views.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].FullNames)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].MobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient[0].EmailAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Patient) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullNames)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PatientID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PatientID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PatientID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

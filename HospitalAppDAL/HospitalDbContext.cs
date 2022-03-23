@@ -10,6 +10,9 @@ namespace HospitalAppDAL
 {
     public class HospitalDbContext: DbContext
     {
+        public HospitalDbContext() { }
+
+        public HospitalDbContext(DbContextOptionsBuilder<HospitalDbContext> options) : base() { }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
@@ -17,9 +20,6 @@ namespace HospitalAppDAL
         public DbSet<Suburb> Suburbs { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Province> Provinces { get; set; }
-        public HospitalDbContext(DbContextOptions options) : base(options) { }
-
-        public HospitalDbContext(DbContextOptionsBuilder<HospitalDbContext> options) : base() { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

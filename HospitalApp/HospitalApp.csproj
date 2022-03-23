@@ -20,8 +20,4 @@
     <ProjectReference Include="..\HospitalAppDAL\HospitalAppDAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Pages\Patients\" />
-  </ItemGroup>
-
 </Project>
